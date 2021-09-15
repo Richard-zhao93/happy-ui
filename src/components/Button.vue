@@ -1,7 +1,7 @@
 <template>
   <button class="h-button" :class="{ [`icon-${iconPosition}`]: true }">
     <!-- 图标 -->
-    <h-svg v-if="icon" :name="icon" class="icon"></h-svg>
+    <h-svg v-if="icon" :name="icon" class="icon" :class="'loading'"></h-svg>
 
     <div class="content">
       <!-- 默认插槽 -->
@@ -32,6 +32,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .h-button {
   font-size: var(--font-size);
   height: var(--button-height);
@@ -76,6 +84,10 @@ export default {
       margin-left: 0.3em;
       margin-right: 0;
     }
+  }
+
+  .loading {
+    animation: spin 1s infinite linear;
   }
 }
 </style>
