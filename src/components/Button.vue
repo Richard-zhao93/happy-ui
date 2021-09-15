@@ -1,12 +1,14 @@
 <template>
-  <button class="h-button">
+  <button class="h-button" :class="{ [`icon-${iconPosition}`]: true }">
     <!-- 图标 -->
     <svg class="icon" aria-hidden="true">
       <use :xlink:href="`#i-${icon}`"></use>
     </svg>
 
-    <!-- 默认插槽 -->
-    <slot></slot>
+    <div class="content">
+      <!-- 默认插槽 -->
+      <slot></slot>
+    </div>
   </button>
 </template>
 
@@ -31,16 +33,38 @@ export default {
   border: 1px solid var(--border-color);
   background-color: var(--button-bg);
 
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+
   &:hover {
     border-color: var(--border-hover-color);
   }
-
   &:active {
     border-color: var(--button-active-bg);
   }
-
   &:focus {
     outline: none;
+  }
+
+  > .content {
+    order: 2;
+  }
+  > .icon {
+    order: 1;
+    margin-right: 0.1em;
+  }
+
+  &.icon-right {
+    > .content {
+      order: 1;
+    }
+    > .icon {
+      order: 2;
+      margin-right: 0;
+      margin-left: 0.3em;
+    }
   }
 }
 </style>
