@@ -17,10 +17,25 @@
 
 export default {
   name: 'h-button',
-  props: [
-    'icon',
-    'iconPosition' // left / right
-  ]
+  // props: [
+  //   'icon',
+  //   'iconPosition'
+  // ],
+  props: {
+    icon: {},
+    iconPosition: {
+      // left / right
+      type: String,
+      default: 'left',
+      // 属性检查器
+      validator(value) {
+        if (value !== 'left' && value !== 'right') {
+          return false
+        }
+        return true
+      }
+    }
+  }
 }
 </script>
 
@@ -53,7 +68,8 @@ export default {
   }
   > .icon {
     order: 1;
-    margin-right: 0.1em;
+    margin-left: 0;
+    margin-right: 0.3em;
   }
 
   &.icon-right {
@@ -62,8 +78,8 @@ export default {
     }
     > .icon {
       order: 2;
-      margin-right: 0;
       margin-left: 0.3em;
+      margin-right: 0;
     }
   }
 }
