@@ -10,10 +10,13 @@
     "type": "git",
     "url": "git+https://github.com/Richard-zhao93/happy-ui.git"
   },
-  "author": "Richard",
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Richard-zhao93/happy-ui/issues"
   },
-  "homepage": "https://github.com/Richard-zhao93/happy-ui#readme"
+  "homepage": "https://github.com/Richard-zhao93/happy-ui#readme",
+  "dependencies": {
+    "vue": "^2.6.14"
+  }
 }
