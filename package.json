@@ -18,5 +18,8 @@
   "homepage": "https://github.com/Richard-zhao93/happy-ui#readme",
   "dependencies": {
     "vue": "^2.6.14"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
   }
 }
