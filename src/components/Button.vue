@@ -74,6 +74,7 @@ export default {
     outline: none;
   }
 
+  // 设置图标靠左的样式
   > .content {
     order: 2;
   }
@@ -83,6 +84,7 @@ export default {
     margin-right: 0.3em;
   }
 
+  // 设置图标靠右的样式
   &.icon-right {
     > .content {
       order: 1;
