@@ -3,6 +3,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  font-size: var(--font-size);
+}
+
 :root {
   --button-height: 32px;
   --button-bg: white;
