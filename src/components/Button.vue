@@ -1,9 +1,7 @@
 <template>
   <button class="h-button" :class="{ [`icon-${iconPosition}`]: true }">
     <!-- 图标 -->
-    <svg class="icon" aria-hidden="true">
-      <use :xlink:href="`#i-${icon}`"></use>
-    </svg>
+    <h-svg v-if="icon" :name="icon" class="icon"></h-svg>
 
     <div class="content">
       <!-- 默认插槽 -->
@@ -13,14 +11,8 @@
 </template>
 
 <script>
-// import { defineComponent } from '@vue/composition-api'
-
 export default {
   name: 'h-button',
-  // props: [
-  //   'icon',
-  //   'iconPosition'
-  // ],
   props: {
     icon: {},
     iconPosition: {
@@ -47,6 +39,7 @@ export default {
   border-radius: var(--border-radius);
   border: 1px solid var(--border-color);
   background-color: var(--button-bg);
+  cursor: pointer;
 
   display: inline-flex;
   justify-content: center;
@@ -54,9 +47,11 @@ export default {
   vertical-align: middle;
 
   &:hover {
+    color: var(--border-hover-color);
     border-color: var(--border-hover-color);
   }
   &:active {
+    color: var(--button-active-bg);
     border-color: var(--button-active-bg);
   }
   &:focus {
