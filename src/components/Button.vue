@@ -1,12 +1,24 @@
 <template>
-  <button class="h-button">按钮</button>
+  <button class="h-button">
+    <!-- 图标 -->
+    <svg class="icon" aria-hidden="true">
+      <use :xlink:href="`#i-${icon}`"></use>
+    </svg>
+
+    <!-- 默认插槽 -->
+    <slot></slot>
+  </button>
 </template>
 
 <script>
 // import { defineComponent } from '@vue/composition-api'
 
 export default {
-  name: 'h-button'
+  name: 'h-button',
+  props: [
+    'icon',
+    'iconPosition' // left / right
+  ]
 }
 </script>
 
