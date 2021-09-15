@@ -1,7 +1,11 @@
 <template>
   <button class="h-button" :class="{ [`icon-${iconPosition}`]: true }">
     <!-- 图标 -->
-    <h-svg v-if="icon" :name="icon" class="icon" :class="'loading'"></h-svg>
+    <h-svg
+      v-if="icon"
+      :name="icon"
+      :class="[loading && icon === 'loading' ? 'icon loading' : 'icon']"
+    ></h-svg>
 
     <div class="content">
       <!-- 默认插槽 -->
@@ -26,6 +30,10 @@ export default {
         }
         return true
       }
+    },
+    loading: {
+      type: Boolean,
+      default: false
     }
   }
 }
