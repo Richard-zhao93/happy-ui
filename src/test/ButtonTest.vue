@@ -20,6 +20,7 @@
 import Button from '../components/Button'
 import Svg from '../components/Svg'
 import ButtonGroup from '../components/ButtonGroup'
+
 export default {
   components: {
     'h-button': Button,
