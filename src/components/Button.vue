@@ -1,4 +1,5 @@
 <template>
+  <!-- <div class="h-button-cotainer"> -->
   <button
     class="h-button"
     :class="{ [`icon-${iconPosition}`]: true }"
@@ -10,15 +11,15 @@
       :name="icon"
       :class="[loading && icon === 'loading' ? 'icon loading' : 'icon']"
     ></h-svg>
-
     <!-- 插槽内容区域 -->
-    <div class="content">
+    <div class="h-button-content">
       <!-- 默认插槽 -->
       <slot></slot>
     </div>
+    <div style="”clear:both”"></div>
   </button>
+  <!-- </div> -->
 </template>
-
 <script>
 import Svg from './Svg'
 export default {
@@ -57,7 +58,6 @@ export default {
     transform: rotate(360deg);
   }
 }
-
 .h-button {
   font-size: var(--font-size);
   height: var(--button-height);
@@ -66,6 +66,9 @@ export default {
   border: 1px solid var(--border-color);
   background-color: var(--button-bg);
   cursor: pointer;
+
+  // 清除 inline- 产生的水平间隙问题
+  // float: left;
 
   display: inline-flex;
   justify-content: center;
@@ -85,7 +88,7 @@ export default {
   }
 
   // 设置图标靠左的样式
-  > .content {
+  > .h-button-content {
     order: 2;
   }
   > .icon {
@@ -96,7 +99,7 @@ export default {
 
   // 设置图标靠右的样式
   &.icon-right {
-    > .content {
+    > .h-button-content {
       order: 1;
     }
     > .icon {
@@ -110,4 +113,13 @@ export default {
     animation: spin 1s infinite linear;
   }
 }
+
+// 清浮动
+// .h-button-cotainer::after {
+//   display: block;
+//   content: '';
+//   height: 0;
+//   clear: both;
+//   visibility: hidden;
+// }
 </style>

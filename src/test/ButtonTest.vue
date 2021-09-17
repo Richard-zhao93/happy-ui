@@ -8,17 +8,20 @@
       按钮
     </h-button>
 
-    <h-svg name="download"></h-svg>
+    <div style="margin-top: 20px;"></div>
+    <h-button-group></h-button-group>
   </div>
 </template>
 
 <script>
 import Button from '../components/Button'
 import Svg from '../components/Svg'
+import ButtonGroup from '../components/ButtonGroup'
 export default {
   components: {
     'h-button': Button,
-    'h-svg': Svg
+    'h-svg': Svg,
+    'h-button-group': ButtonGroup
   }
 }
 </script>
