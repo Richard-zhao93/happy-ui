@@ -1,5 +1,9 @@
 <template>
-  <button class="h-button" :class="{ [`icon-${iconPosition}`]: true }">
+  <button
+    class="h-button"
+    :class="{ [`icon-${iconPosition}`]: true }"
+    @click="$emit('click')"
+  >
     <!-- 图标 -->
     <h-svg
       v-if="icon"
@@ -7,6 +11,7 @@
       :class="[loading && icon === 'loading' ? 'icon loading' : 'icon']"
     ></h-svg>
 
+    <!-- 插槽内容区域 -->
     <div class="content">
       <!-- 默认插槽 -->
       <slot></slot>
@@ -48,6 +53,7 @@ export default {
     transform: rotate(360deg);
   }
 }
+
 .h-button {
   font-size: var(--font-size);
   height: var(--button-height);
