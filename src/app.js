@@ -1,6 +1,5 @@
 import Vue from "vue";
 import ButtonTest from './test/ButtonTest.vue';
-import chai from 'chai'
 import Button from './components/Button.vue';
 
 new Vue({
@@ -13,7 +12,12 @@ new Vue({
 /**
  * 单元测试
  */
+ import chai from 'chai';
+ import spies from 'chai-spies';
+
  const expect = chai.expect
+// 使用 spies 
+ chai.use(spies);
 
  /**
   * 按钮模块单元测试
@@ -98,15 +102,18 @@ new Vue({
   });
 
   gButton.$mount(div);
-  // TODO:
-  gButton.$on('click', function() {
+  let spy = chai.spy(() => {
     console.log('button click');
   });
+  // TODO:
+  gButton.$on('click', spy);
   
   let button = gButton.$el;
   button.click();
+  // 期待 spy 函数被执行
+  expect(spy).to.have.been.called();
 
   // 清除
-  // gButton.$el.remove();
-  // gButton.$destroy();
+  gButton.$el.remove();
+  gButton.$destroy();
 }
