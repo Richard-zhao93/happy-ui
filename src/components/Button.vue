@@ -20,8 +20,12 @@
 </template>
 
 <script>
+import Svg from './Svg'
 export default {
   name: 'h-button',
+  components: {
+    'h-svg': Svg
+  },
   props: {
     icon: {},
     iconPosition: {

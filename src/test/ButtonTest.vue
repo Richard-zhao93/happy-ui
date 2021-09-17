@@ -13,7 +13,6 @@
 </template>
 
 <script>
-// ../components/Button.vue
 import Button from '../components/Button'
 import Svg from '../components/Svg'
 export default {
