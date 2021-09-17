@@ -1,27 +1,39 @@
 <template>
   <div class="h-button-group">
-    <h-button icon="left">上一页</h-button>
-    <h-button icon="right" iconPosition="right">下一页</h-button>
     <slot></slot>
   </div>
 </template>
 
 <script>
-import Button from './Button.vue'
 export default {
   name: 'h-button-group',
-  components: {
-    'h-button': Button
-  }
+  components: {}
 }
 </script>
 
 <style lang="scss" scoped>
 .h-button-group {
+  display: inline-flex;
   > .h-button {
-    // border-radius: 0;
+    border-radius: 0;
 
-    &:not(:first-child) {
+    // 解决边框重叠加粗的问题
+    margin-left: -1px;
+
+    &:first-child {
+      border-top-left-radius: var(--border-radius);
+      border-bottom-left-radius: var(--border-radius);
+    }
+
+    &:last-child {
+      border-top-right-radius: var(--border-radius);
+      border-bottom-right-radius: var(--border-radius);
+    }
+
+    // 优化上面解决边框重叠加粗的问题时产生的 bug，显示所有边框线
+    &:hover {
+      position: relative;
+      z-index: 1;
     }
   }
 }
