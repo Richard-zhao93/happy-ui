@@ -27,7 +27,9 @@ export default {
     border-radius: 0;
 
     // 解决边框重叠加粗的问题
-    margin-left: -1px;
+    &:not(:first-child) {
+      margin-left: -1px;
+    }
 
     &:first-child {
       border-top-left-radius: var(--border-radius);
