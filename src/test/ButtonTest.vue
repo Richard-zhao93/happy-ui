@@ -9,8 +9,8 @@
     </h-button>
 
     <div style="margin-top: 20px;"></div>
-    <h-button-group
-      ><h-button icon="left">上一页</h-button>
+    <h-button-group>
+      <h-button icon="left">上一页</h-button>
       <h-button icon="right" iconPosition="right">下一页</h-button>
     </h-button-group>
   </div>

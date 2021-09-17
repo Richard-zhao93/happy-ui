@@ -7,7 +7,16 @@
 <script>
 export default {
   name: 'h-button-group',
-  components: {}
+  components: {},
+  mounted() {
+    // 组件挂载时，对组件内容进行限制：只能包含 button 组件
+    for (const node of this.$el.children) {
+      const name = node.nodeName.toLowerCase()
+      if (name !== 'button') {
+        console.warn('h-button-group 组件应只包含 h-button 组件')
+      }
+    }
+  }
 }
 </script>
 
