@@ -1,14 +1,12 @@
  /**
   * 按钮模块单元测试
   */
-import Vue from 'vue';
+import Vue from 'vue';''
+import chai from 'chai';
 import Button from '../src/components/Button.vue';
 
 Vue.config.productionTip = false;
 Vue.config.devtools = false;
-
-import chai from 'chai';
-// import sinon from 'sinon';
 
 const expect = chai.expect
 
@@ -17,7 +15,7 @@ describe('Button', () => {
    * 测试 button 组件是否存在
    */
   it('存在.', () => {
-    expect(Button).to.be.ok;
+    expect(Button).to.exist;
   });
 
   /**
