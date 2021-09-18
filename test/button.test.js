@@ -114,7 +114,7 @@ describe('Button', () => {
     const cb = sinon.fake();
     buttonVm.$on('click', cb);
     buttonVm.$el.click();
-    expect(cb).to.have.been.called;
+    cb.should.have.been.called;
   })
 });
  
