@@ -1,6 +1,10 @@
 # Happy-UI
-A Vue UI component library.
+
 [![Build Status](https://app.travis-ci.com/Richard-zhao93/happy-ui.svg?branch=master)](https://app.travis-ci.com/Richard-zhao93/happy-ui)
+
+<blockquote>
+  <p>A Vue UI component library.</p>
+</blockquote>
 
 ## 介绍
 ### 用户体验要素
