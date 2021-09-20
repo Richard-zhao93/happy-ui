@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import '../../assests/svg'
 export default {
   name: 'h-svg',
   props: ['name']
