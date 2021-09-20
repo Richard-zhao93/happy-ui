@@ -7,7 +7,7 @@
 <script>
 import '../../assests/svg'
 export default {
-  name: 'h-svg',
+  name: 'HSvg',
   props: ['name']
 }
 </script>

@@ -23,7 +23,7 @@
 <script>
 import Svg from './Svg'
 export default {
-  name: 'h-button',
+  name: 'HButton',
   components: {
     'h-svg': Svg
   },

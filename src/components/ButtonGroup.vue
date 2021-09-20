@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'h-button-group',
+  name: 'HButtonGroup',
   components: {},
   mounted() {
     // 组件挂载时，对组件内容进行限制：只能包含 button 组件
