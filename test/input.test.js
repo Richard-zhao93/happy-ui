@@ -83,7 +83,7 @@ describe('Input', () => {
         let event = new Event(eventName);
         let inputElement = vm.$el.querySelector('input');
         inputElement.dispatchEvent(event);
-        cb.to.have.been.called;
+        cb.should.have.been.called;
       });
     });
   });
