@@ -1,7 +1,7 @@
  /**
   * 按钮模块单元测试
   */
-import Vue from 'vue';''
+import Vue from 'vue';
 import chai from 'chai';
 import Button from '../src/components/Button.vue';
 
