@@ -34,22 +34,57 @@ describe('Input', () => {
       };
     }
 
+    let vm;
+    afterEach(() => {
+      vm.$destroy();
+    });
+
     it('接收 value', () => {
-      const { vm, inputElement } = createCons({ value: '1' });
+      const ret = createCons({ value: '1' });
+      vm = ret.vm;
+      const inputElement = ret.inputElement;
       expect(inputElement.value).to.eql('1');
       vm.$destroy();
     });
 
     it('接收 disabled', () => {
-      const { vm, inputElement } = createCons({ disabled: true });
+      const ret = createCons({ disabled: true });
+      vm = ret.vm;
+      const inputElement = ret.inputElement;
       expect(inputElement.disabled).to.eql(true);
       vm.$destroy();
     });
 
     it('接收 readonly', () => {
-      const { vm, inputElement } = createCons({ readonly: true });
+      const ret = createCons({ readonly: true });
+      vm = ret.vm;
+      const inputElement = ret.inputElement;
       expect(inputElement.readOnly).to.eql(true);
       vm.$destroy();
-    })
+    });
+  });
+
+  // 事件分组
+  describe('event', () => {
+    let vm;
+    afterEach(() => {
+      vm.$destroy();
+    });
+
+    const Constructor = Vue.extend(Input);
+
+    it('支持 change / input / focus / blur 事件', () => {
+      ['change', 'input', 'focus', 'blur']
+      .forEach((eventName) => {
+        vm = new Constructor().$mount();
+        const cb = sinon.fake();
+
+        vm.$on(eventName, cb);
+        let event = new Event(eventName);
+        let inputElement = vm.$el.querySelector('input');
+        inputElement.dispatchEvent(event);
+        cb.to.have.been.called;
+      });
+    });
   });
 })
