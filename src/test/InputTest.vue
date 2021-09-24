@@ -3,6 +3,9 @@
     <h-input value="AAA" disabled></h-input>
     <h-input value="BBB" readonly></h-input>
     <h-input value="BBB" error="Warning 错误信息" @change="change1"></h-input>
+
+    <h-input value="BBB" v-model="message"></h-input>
+    <p>{{ message }}</p>
   </div>
 </template>
 
@@ -11,6 +14,11 @@ import Input from '../components/Input.vue'
 export default {
   components: {
     'h-input': Input
+  },
+  data() {
+    return {
+      message: 'hi'
+    }
   },
   methods: {
     change1() {
