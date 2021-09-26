@@ -1,8 +1,6 @@
 <template>
   <div class="col" :class="colClass" :style="colStyle">
-    <div style="border: 1px solid green; height: 100px;">
-      <slot></slot>
-    </div>
+    <slot></slot>
   </div>
 </template>
 
@@ -27,7 +25,7 @@ export default {
     offset: {
       type: [Number, String]
     },
-    // 响应式
+    // 响应式, 默认为 PC
     phone: {
       type: Object,
       validator
@@ -37,10 +35,6 @@ export default {
       validator
     },
     narrowPc: {
-      type: Object,
-      validator
-    },
-    pc: {
       type: Object,
       validator
     },
@@ -56,19 +50,15 @@ export default {
   },
   computed: {
     colClass() {
-      let { span, offset, phone, ipad, narrowPc, pc, widePc } = this
-      let phoneClass
-      if (phone) {
-        phoneClass = []
-      }
+      let { span, offset, phone, ipad, narrowPc, widePc } = this
+
       return [
         span && `col-${span}`,
         offset && `offset-${offset}`,
-        ...(phone && `col-phone-${phone.span}`),
-        ...(ipad && `col-ipad-${ipad.span}`),
-        ...(narrowPc && `col-narrow-pc-${narrowPc.span}`),
-        ...(pc && `col-pc-${pc.span}`),
-        ...(widePc && `col-wide-pc-${widePc.span}`)
+        ...(phone ? `col-phone-${phone.span}` : []),
+        ...(ipad ? `col-ipad-${ipad.span}` : []),
+        ...(narrowPc ? `col-narrow-pc-${narrowPc.span}` : []),
+        ...(widePc ? `col-wide-pc-${widePc.span}` : [])
       ]
     },
     colStyle() {
@@ -143,22 +133,6 @@ export default {
     }
 
     $class-prefix: offset-narrow-pc-;
-    @for $n from 1 through 24 {
-      &.#{$class-prefix}#{$n} {
-        margin-left: ($n / 24) * 100%;
-      }
-    }
-  }
-
-  @media (min-width: 993px) and (max-width: 1200px) {
-    $class-prefix: col-pc-;
-    @for $n from 1 through 24 {
-      &.#{$class-prefix}#{$n} {
-        width: ($n / 24) * 100%;
-      }
-    }
-
-    $class-prefix: offset-pc-;
     @for $n from 1 through 24 {
       &.#{$class-prefix}#{$n} {
         margin-left: ($n / 24) * 100%;
