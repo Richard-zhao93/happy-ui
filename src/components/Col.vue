@@ -2,6 +2,7 @@
   <div
     class="col"
     :class="[span && `col-${span}`, offset && `offset-${offset}`]"
+    :style="{ paddingLeft: gutter / 2 + 'px', paddingRight: gutter / 2 + 'px' }"
   >
     <div style="border: 1px solid green; height: 100px;">
       <slot></slot>
@@ -20,13 +21,23 @@ export default {
     offset: {
       type: [Number, String]
     }
+    // gutter: {
+    //   type: [Number, String]
+    // }
+  },
+  data() {
+    return {
+      gutter: 0
+    }
+  },
+  mounted() {
+    this.gutter = this.$parent.gutter
   }
 }
 </script>
 
 <style lang="scss" scoped>
 .col {
-  height: 100px;
   width: 50%;
   padding: 0 10px;
 

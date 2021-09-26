@@ -1,11 +1,11 @@
 <template>
   <div class="container">
-    <h-row>
+    <h-row gutter="30">
       <h-col></h-col>
       <h-col></h-col>
       <h-col></h-col>
     </h-row>
-    <h-row>
+    <!-- <h-row>
       <h-col sapn="1"></h-col>
       <h-col span="2"></h-col>
       <h-col span="21"></h-col>
@@ -24,7 +24,7 @@
     <h-row>
       <h-col></h-col>
       <h-col offset="2"></h-col>
-    </h-row>
+    </h-row> -->
   </div>
 </template>
 
