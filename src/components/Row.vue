@@ -1,5 +1,5 @@
 <template>
-  <div class="row" :style="rowStyle">
+  <div class="row" :style="rowStyle" :class="rowClass">
     <slot></slot>
   </div>
 </template>
@@ -10,6 +10,13 @@ export default {
   props: {
     gutter: {
       type: [Number, String]
+    },
+    // 控制项目内元素摆放方式 左对齐、右对齐、居中对齐
+    align: {
+      type: String,
+      validator(value) {
+        return ['left', 'right', 'cetner'].includes(value)
+      }
     }
   },
   computed: {
@@ -19,6 +26,10 @@ export default {
         marginLeft: -gutter / 2 + 'px',
         marginRight: -gutter / 2 + 'px'
       }
+    },
+    rowClass() {
+      let { align } = this
+      return [algin && `align-${align}`]
     }
   }
 }
@@ -27,5 +38,14 @@ export default {
 <style lang="scss" scoped>
 .row {
   display: flex;
+  &.align-left {
+    justify-content: flex-start;
+  }
+  &.align-right {
+    justify-self: flex-end;
+  }
+  &.align-center {
+    justify-content: center;
+  }
 }
 </style>
