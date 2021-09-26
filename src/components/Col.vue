@@ -52,13 +52,26 @@ export default {
     colClass() {
       let { span, offset, phone, ipad, narrowPc, widePc } = this
 
+      let createClasses = (obj, str = '') => {
+        if (!obj) return []
+
+        let arr = []
+        if (obj.sapn) {
+          arr.push(`col-${str}${obj.span}`)
+        }
+        if (obj.offset) {
+          arr.push(`col-${str}${obj.offset}`)
+        }
+
+        return arr
+      }
+
       return [
-        span && `col-${span}`,
-        offset && `offset-${offset}`,
-        ...(phone ? `col-phone-${phone.span}` : []),
-        ...(ipad ? `col-ipad-${ipad.span}` : []),
-        ...(narrowPc ? `col-narrow-pc-${narrowPc.span}` : []),
-        ...(widePc ? `col-wide-pc-${widePc.span}` : [])
+        ...createClasses({ sapn, offset }),
+        ...createClasses(phone, 'phone-'),
+        ...createClasses(ipad, 'ipad-'),
+        ...createClasses(narrowPc, 'narrow-pc-'),
+        ...createClasses(widePc, 'wide-pc-')
       ]
     },
     colStyle() {
