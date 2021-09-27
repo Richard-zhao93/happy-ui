@@ -1,4 +1,8 @@
-<template> </template>
+<template>
+  <div class="aside">
+    <slot></slot>
+  </div>
+</template>
 
 <script>
 export default {
@@ -6,4 +10,4 @@ export default {
 }
 </script>
 
-<style></style>
+<style lang="scss" scoped></style>
