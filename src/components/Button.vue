@@ -50,6 +50,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$font-size: 14px;
+$button-height: 32px;
+$button-bg: white;
+$button-active-bg: #eee;
+
+$border-radius: 4px;
+$color: #999;
+$border-color: #999;
+$border-hover-color: #666;
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -59,12 +69,12 @@ export default {
   }
 }
 .h-button {
-  font-size: var(--font-size);
-  height: var(--button-height);
+  font-size: $font-size;
+  height: $button-height;
   padding: 0 1em;
-  border-radius: var(--border-radius);
-  border: 1px solid var(--border-color);
-  background-color: var(--button-bg);
+  border-radius: $border-radius;
+  border: 1px solid $border-color;
+  background-color: $button-bg;
   cursor: pointer;
 
   // 清除 inline- 产生的水平间隙问题
@@ -76,12 +86,12 @@ export default {
   vertical-align: middle;
 
   &:hover {
-    color: var(--border-hover-color);
-    border-color: var(--border-hover-color);
+    color: $border-hover-color;
+    border-color: $border-hover-color;
   }
   &:active {
-    color: var(--button-active-bg);
-    border-color: var(--button-active-bg);
+    color: $button-active-bg;
+    border-color: $button-active-bg;
   }
   &:focus {
     outline: none;
