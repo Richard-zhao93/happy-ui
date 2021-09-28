@@ -21,6 +21,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../assests/variable';
+
 .h-button-group {
   display: inline-flex;
   > .h-button {
@@ -32,13 +34,13 @@ export default {
     }
 
     &:first-child {
-      border-top-left-radius: var(--border-radius);
-      border-bottom-left-radius: var(--border-radius);
+      border-top-left-radius: var($border-radius);
+      border-bottom-left-radius: var($border-radius);
     }
 
     &:last-child {
-      border-top-right-radius: var(--border-radius);
-      border-bottom-right-radius: var(--border-radius);
+      border-top-right-radius: var($border-radius);
+      border-bottom-right-radius: var($border-radius);
     }
 
     // 优化上面解决边框重叠加粗的问题时产生的 bug，显示所有边框线

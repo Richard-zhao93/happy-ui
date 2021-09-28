@@ -50,15 +50,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$font-size: 14px;
-$button-height: 32px;
-$button-bg: white;
-$button-active-bg: #eee;
-
-$border-radius: 4px;
-$color: #999;
-$border-color: #999;
-$border-hover-color: #666;
+@import '../../assests/variable';
 
 @keyframes spin {
   0% {

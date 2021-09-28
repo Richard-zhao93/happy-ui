@@ -51,15 +51,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$font-size: 14px;
-$height: 40px;
-$border-radius: 4px;
-$color: #606266;
-$border-color: #dcdfe6;
-$border-color-hover: #c0c4cc;
-$border-color-focus: #409eff;
-$box-shadow-color: rgba(0, 0, 0, 0.5);
-$red: #f56c6c;
+@import '../../assests/variable';
 
 .wrapper {
   font-size: $font-size;
