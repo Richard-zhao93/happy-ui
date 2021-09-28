@@ -1,4 +1,5 @@
 module.exports = {
+  base: '/happy-ui/',
   title: 'Happy UI',
   description: 'Just playing around',
 
