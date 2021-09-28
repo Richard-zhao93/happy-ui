@@ -6,11 +6,7 @@
     <h-button icon="loading" :loading="true">按钮</h-button>
 
     <!-- 代码展示 -->
-    <pre>
-      <code>
-        {{ content }}
-      </code>
-    </pre>
+    <pre><code>{{ content }}</code></pre>
   </div>
 </template>
 
@@ -23,12 +19,13 @@ export default {
   },
   data() {
     return {
-      content: `
-        <h-button>默认按钮</h-button>
+      content: `<h-button>默认按钮</h-button>
         <h-button icon="setting">按钮</h-button>
         <h-button icon="setting" icon-position="right">按钮</h-button>
         <h-button icon="loading" :loading="true">按钮</h-button>
-      `.replace(/\t+| +/g, '')
+      `
+        .replace(/\t+| +/g, '')
+        .trim()
     }
   }
 }
