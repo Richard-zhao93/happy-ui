@@ -8,4 +8,6 @@ title: Button
 ## 基础用法
 基础的按钮用法。
 
-<button-demos/>
+<ClientOnly>
+  <button-demos/>
+</ClientOnly>
