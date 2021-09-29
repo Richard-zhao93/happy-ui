@@ -9,16 +9,23 @@
         <h-cascader-item :option="item"></h-cascader-item>
       </div>
     </div>
+
+    <!-- 输入框部分 -->
+    <div>
+      <h-input></h-input>
+    </div>
   </div>
 </template>
 
 <script>
 import CascaderItem from './CascaderItem'
+import Input from './Input.vue'
 
 export default {
   name: 'HCascader',
   components: {
-    'h-cascader-item': CascaderItem
+    'h-cascader-item': CascaderItem,
+    'h-input': Input
   },
   props: {
     options: {

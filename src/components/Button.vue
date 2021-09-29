@@ -78,8 +78,8 @@ export default {
   vertical-align: middle;
 
   &:hover {
-    color: $border-hover-color;
-    border-color: $border-hover-color;
+    color: $border-color-hover;
+    border-color: $border-color-hover;
   }
   &:active {
     color: $button-active-bg;
