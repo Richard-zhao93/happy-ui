@@ -3,24 +3,25 @@
     <div class="h-input" :class="{ error }">
       <!-- 输入框 -->
       <input
+        ref="input"
         type="text"
         :value="value"
         :placeholder="placeholder"
         :disabled="disabled"
         :readonly="readonly"
-        @change="$emit('change', $event.target.value)"
-        @input="input($event)"
+        @change="handleChange($event)"
+        @input="handleInput($event)"
         @focus="$emit('focus', $event.target.value)"
         @blur="$emit('blur', $event.target.value)"
       />
 
       <!-- 输入框图标 -->
-      <div class="h-input-suffix" v-if="clearShow">
+      <div class="h-input-suffix" v-if="showClear">
         <h-svg name="clear" class="h-input-suffix-svg"></h-svg>
       </div>
 
       <!-- 覆盖在 svg 上的为了触发点击事件而存在的透明块 -->
-      <div class="svg-to-click" @click="clickSvg"></div>
+      <div class="svg-to-click" @click="clickSvg" v-if="showClear"></div>
     </div>
 
     <!-- 错误提示 信息部分 TODO: -->
@@ -35,6 +36,7 @@
 
 <script>
 import Svg from './Svg'
+
 export default {
   name: 'HInput',
   components: {
@@ -47,7 +49,8 @@ export default {
     },
     // 输入值
     value: {
-      type: String
+      type: [String, Number],
+      default: ''
     },
     // 是否禁用
     disabled: {
@@ -73,20 +76,68 @@ export default {
     return {}
   },
   computed: {
-    clearShow() {
-      // 可清空图标显示 clearable && value 不为空
-      return !!(this.clearable && this.value)
+    nativeInputValue: {
+      get: function() {
+        return this.value === null || this.value === undefined
+          ? ''
+          : String(this.value)
+      },
+      set: function() {}
+    },
+    // 是否展示可清空图标
+    showClear() {
+      // TODO: 条件还需要完善，比如是否聚焦 focus
+      return !!(this.clearable && !this.readonly && this.nativeInputValue)
     }
   },
+
+  watch: {
+    nativeInputValue() {
+      this.setNativeInputValue()
+    }
+  },
+
   methods: {
-    input($event) {
-      // TODO: 此处会导致控制台警告，不能修改 props 传进来的值
-      this.value = $event.target.value
-      this.$emit('input', $event.target.value)
-    },
     clickSvg() {
       console.log('click svg')
+      this.clear()
+    },
+
+    // 输入事件触发
+    handleInput($event) {
+      if ($event.target.value === this.nativeInputValue) return
+      this.nativeInputValue = this.getInput().value
+      this.$emit('input', $event.target.value)
+      this.$nextTick(this.setNativeInputValue)
+    },
+
+    // change 事件触发
+    handleChange($event) {
+      this.$emit('change', $event.target.value)
+    },
+
+    // 获取输入框 DOM 对象
+    getInput() {
+      return this.$refs.input
+    },
+
+    // 同步输入框值
+    setNativeInputValue() {
+      const input = this.getInput()
+      if (!input) return
+      if (this.value === this.nativeInputValue) return
+      input.value = this.nativeInputValue
+    },
+
+    // 清空输入框
+    clear() {
+      this.$emit('input', '')
+      this.$emit('change', '')
+      this.$emit('clear')
     }
+  },
+  mounted() {
+    this.setNativeInputValue()
   }
 }
 </script>
@@ -143,6 +194,7 @@ export default {
 
       display: flex;
       align-items: center;
+      z-index: 99999;
 
       // TODO:
       color: #c0c4cc;
