@@ -105,7 +105,7 @@ export default {
 
     // 输入事件触发
     handleInput($event) {
-      if ($event.target.value === this.nativeInputValue) return
+      // if ($event.target.value === this.nativeInputValue) return
       this.nativeInputValue = this.getInput().value
       this.$emit('input', $event.target.value)
       this.$nextTick(this.setNativeInputValue)
