@@ -4,7 +4,7 @@
 
 import Vue from 'vue';
 import chai from 'chai';
-import Input from '../src/components/Input.vue';
+import Input from '../src/components/input';
 
 Vue.config.productionTip = false;
 Vue.config.devtools = false;

@@ -20,8 +20,10 @@
   </button>
   <!-- </div> -->
 </template>
+
 <script>
-import Svg from './Svg'
+import Svg from '../../svg'
+
 export default {
   name: 'HButton',
   components: {
@@ -50,7 +52,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../../assests/variable';
+@import '../../../../assests/_variable';
 
 @keyframes spin {
   0% {

@@ -3,7 +3,7 @@
   */
 import Vue from 'vue';
 import chai from 'chai';
-import Button from '../src/components/Button.vue';
+import Button from '../src/components/button';
 
 Vue.config.productionTip = false;
 Vue.config.devtools = false;

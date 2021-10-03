@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import Svg from './Svg'
+import Svg from '../../Svg'
 
 export default {
   name: 'HInput',
@@ -99,7 +99,6 @@ export default {
 
   methods: {
     clickSvg() {
-      console.log('click svg')
       this.clear()
     },
 
@@ -143,7 +142,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../../assests/variable';
+@import '../../../../assests/variable';
 
 .h-input-container {
   .h-input {

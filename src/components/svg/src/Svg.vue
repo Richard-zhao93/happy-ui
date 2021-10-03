@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import '../../assests/svg'
+import '../../../../assests/svg'
 export default {
   name: 'HSvg',
   props: ['name']

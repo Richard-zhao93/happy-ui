@@ -21,7 +21,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../../assests/variable';
+@import '../../../../assests/variable';
 
 .h-button-group {
   display: inline-flex;
